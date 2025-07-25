@@ -20,3 +20,8 @@ userSchema.pre('save', function(next) {
 userSchema.index({ email: 1 }, { name: 'custom_email_index', unique: true });
 
 module.exports = mongoose.model('User', userSchema); 
+
+mongoose.connect(process.env.MONGODB_URI, {
+  // Add these options to your connection
+  autoIndex: false // Don't build indexes
+});
