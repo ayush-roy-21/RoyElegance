@@ -1,27 +1,49 @@
 const mongoose = require('mongoose');
 
+// Define the schema for the User model
 const userSchema = new mongoose.Schema({
-  name: { type: String, required: true, trim: true },
-  email: { type: String, required: true, unique: true, lowercase: true, trim: true },
-  password: { type: String, required: true, select: false },
-  phone: { type: String, required: true },
-  address: { type: String, required: true },
-  wishlist: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Product' }],
-  role: { type: String, enum: ['user', 'admin'], default: 'user' },
-  createdAt: { type: Date, default: Date.now },
-  updatedAt: { type: Date, default: Date.now }
+  name: { 
+    type: String, 
+    required: true, 
+    trim: true 
+  },
+  email: { 
+    type: String, 
+    required: true, 
+    unique: true, // Ensures no two users can share the same email
+    lowercase: true, 
+    trim: true 
+  },
+  password: { 
+    type: String, 
+    required: true, 
+    select: false // Excludes password from query results by default for security
+  },
+  phone: { 
+    type: String, 
+    required: true 
+  },
+  address: { 
+    type: String, 
+    required: true 
+  },
+  wishlist: [{ 
+    type: mongoose.Schema.Types.ObjectId, 
+    ref: 'Product' 
+  }],
+  role: { 
+    type: String, 
+    enum: ['user', 'admin'], 
+    default: 'user' 
+  }
+}, {
+  // Mongoose option to automatically manage createdAt and updatedAt timestamps.
+  // This adds `createdAt` and `updatedAt` fields to your documents.
+  timestamps: true 
 });
 
-userSchema.pre('save', function(next) {
-  this.updatedAt = Date.now();
-  next();
-});
+// Create and export the User model based on the schema
+module.exports = mongoose.model('User', userSchema);
 
-userSchema.index({ email: 1 }, { name: 'custom_email_index', unique: true });
-
-module.exports = mongoose.model('User', userSchema); 
-
-mongoose.connect(process.env.MONGODB_URI, {
-  // Add these options to your connection
-  autoIndex: false // Don't build indexes
-});
+// CRITICAL FIX: The redundant mongoose.connect() call has been removed.
+// The database connection is now correctly handled only once in your main app.js file.
