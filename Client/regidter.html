@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Roy's Elegance</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Login/Register Specific Styles */
+        .auth-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 20px;
+        }
+
+        .auth-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 100%;
+            max-width: 450px;
+            position: relative;
+        }
+
+        .auth-header {
+            background: linear-gradient(135deg, #d4af37 0%, #c19b2e 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .auth-header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .auth-header p {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        .auth-form {
+            padding: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: #f8f9fa;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #d4af37;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+        }
+
+        .form-group .input-icon {
+            position: relative;
+        }
+
+        .form-group .input-icon i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #666;
+        }
+
+        .form-group .input-icon input {
+            padding-left: 45px;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #666;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+
+        .password-toggle:hover {
+            color: #d4af37;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .password-strength {
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+        }
+
+        .strength-bar {
+            height: 4px;
+            background: #e9ecef;
+            border-radius: 2px;
+            margin-top: 0.5rem;
+            overflow: hidden;
+        }
+
+        .strength-fill {
+            height: 100%;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .strength-weak { background: #f44336; width: 25%; }
+        .strength-fair { background: #ff9800; width: 50%; }
+        .strength-good { background: #ffc107; width: 75%; }
+        .strength-strong { background: #4CAF50; width: 100%; }
+
+        .terms-checkbox {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .terms-checkbox input[type="checkbox"] {
+            width: auto;
+            margin: 0;
+            margin-top: 0.2rem;
+        }
+
+        .terms-checkbox a {
+            color: #d4af37;
+            text-decoration: none;
+        }
+
+        .terms-checkbox a:hover {
+            color: #c19b2e;
+        }
+
+        .auth-btn {
+            width: 100%;
+            padding: 15px;
+            background: #d4af37;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 1rem;
+        }
+
+        .auth-btn:hover {
+            background: #c19b2e;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+        }
+
+        .auth-divider {
+            text-align: center;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+
+        .auth-divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: #e9ecef;
+        }
+
+        .auth-divider span {
+            background: white;
+            padding: 0 1rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .social-login {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-btn {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid #e9ecef;
+            background: white;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-weight: 500;
+        }
+
+        .social-btn:hover {
+            border-color: #d4af37;
+            transform: translateY(-2px);
+        }
+
+        .social-btn.google {
+            color: #db4437;
+        }
+
+        .social-btn.facebook {
+            color: #4267B2;
+        }
+
+        .auth-footer {
+            text-align: center;
+            padding: 1rem 2rem 2rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .auth-footer a {
+            color: #d4af37;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .auth-footer a:hover {
+            color: #c19b2e;
+        }
+
+        .back-home {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: #d4af37;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .back-home:hover {
+            color: #c19b2e;
+        }
+
+        /* Error styles */
+        .form-group.error input {
+            border-color: #f44336;
+        }
+
+        .error-message {
+            color: #f44336;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Success styles */
+        .form-group.success input {
+            border-color: #4CAF50;
+        }
+
+        /* Loading state */
+        .auth-btn.loading {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .auth-btn.loading::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 2px solid transparent;
+            border-top: 2px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .auth-card {
+                margin: 10px;
+            }
+            
+            .auth-header {
+                padding: 1.5rem;
+            }
+            
+            .auth-form {
+                padding: 1.5rem;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .social-login {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-container">
+        <a href="index.htmL" class="back-home">
+            <i class="fas fa-arrow-left"></i>
+            Back to Home
+        </a>
+        
+        <div class="auth-card">
+            <div class="auth-header">
+                <h1>Create Account</h1>
+                <p>Join Roy's Elegance and discover amazing fashion</p>
+            </div>
+            
+            <form class="auth-form" id="registerForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <div class="input-icon">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="firstName" name="firstName" placeholder="First name" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <div class="input-icon">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="lastName" name="lastName" placeholder="Last name" required>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <div class="input-icon">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <div class="input-icon">
+                        <i class="fas fa-phone"></i>
+                        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="input-icon">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="password" name="password" placeholder="Create a password" required>
+                        <button type="button" class="password-toggle" onclick="togglePassword('password')">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <div class="password-strength">
+                        <div class="strength-bar">
+                            <div class="strength-fill" id="strengthFill"></div>
+                        </div>
+                        <span id="strengthText">Password strength</span>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <div class="input-icon">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
+                        <button type="button" class="password-toggle" onclick="togglePassword('confirmPassword')">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="terms-checkbox">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <label for="terms">
+                        I agree to the <a href="#" onclick="showTerms()">Terms of Service</a> and <a href="#" onclick="showPrivacy()">Privacy Policy</a>
+                    </label>
+                </div>
+                
+                <div class="terms-checkbox">
+                    <input type="checkbox" id="newsletter" name="newsletter">
+                    <label for="newsletter">
+                        Subscribe to our newsletter for updates and offers
+                    </label>
+                </div>
+                
+                <button type="submit" class="auth-btn" id="registerBtn">
+                    <span>Create Account</span>
+                </button>
+                
+                <div class="auth-divider">
+                    <span>or sign up with</span>
+                </div>
+                
+                <div class="social-login">
+                    <button type="button" class="social-btn google">
+                        <i class="fab fa-google"></i>
+                        Google
+                    </button>
+                    <button type="button" class="social-btn facebook">
+                        <i class="fab fa-facebook-f"></i>
+                        Facebook
+                    </button>
+                </div>
+            </form>
+            
+            <div class="auth-footer">
+                Already have an account? <a href="login.html">Sign in here</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Password toggle functionality
+        function togglePassword(inputId) {
+            const input = document.getElementById(inputId);
+            const toggle = input.nextElementSibling;
+            const icon = toggle.querySelector('i');
+            
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                input.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        }
+
+        // Password strength checker
+        function checkPasswordStrength(password) {
+            let strength = 0;
+            let feedback = '';
+
+            if (password.length >= 8) strength += 25;
+            if (password.match(/[a-z]/)) strength += 25;
+            if (password.match(/[A-Z]/)) strength += 25;
+            if (password.match(/[0-9]/)) strength += 25;
+
+            const strengthFill = document.getElementById('strengthFill');
+            const strengthText = document.getElementById('strengthText');
+
+            strengthFill.className = 'strength-fill';
+            
+            if (strength === 0) {
+                strengthFill.classList.add('strength-weak');
+                feedback = 'Very weak';
+            } else if (strength <= 25) {
+                strengthFill.classList.add('strength-weak');
+                feedback = 'Weak';
+            } else if (strength <= 50) {
+                strengthFill.classList.add('strength-fair');
+                feedback = 'Fair';
+            } else if (strength <= 75) {
+                strengthFill.classList.add('strength-good');
+                feedback = 'Good';
+            } else {
+                strengthFill.classList.add('strength-strong');
+                feedback = 'Strong';
+            }
+
+            strengthText.textContent = feedback;
+        }
+
+        // Form validation and submission
+        const registerForm = document.getElementById('registerForm');
+        const registerBtn = document.getElementById('registerBtn');
+
+        registerForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const terms = document.getElementById('terms').checked;
+            const newsletter = document.getElementById('newsletter').checked;
+            
+            // Validation
+            if (!firstName || !lastName || !email || !phone || !password || !confirmPassword) {
+                showNotification('Please fill in all required fields', 'error');
+                return;
+            }
+            
+            if (!isValidEmail(email)) {
+                showNotification('Please enter a valid email address', 'error');
+                return;
+            }
+            
+            if (!isValidPhone(phone)) {
+                showNotification('Please enter a valid phone number', 'error');
+                return;
+            }
+            
+            if (password.length < 8) {
+                showNotification('Password must be at least 8 characters long', 'error');
+                return;
+            }
+            
+            if (password !== confirmPassword) {
+                showNotification('Passwords do not match', 'error');
+                return;
+            }
+            
+            if (!terms) {
+                showNotification('Please accept the terms and conditions', 'error');
+                return;
+            }
+            
+            // Show loading state
+            registerBtn.classList.add('loading');
+            registerBtn.querySelector('span').textContent = 'Creating Account...';
+            
+            // Simulate registration process
+            setTimeout(() => {
+                registerBtn.classList.remove('loading');
+                registerBtn.querySelector('span').textContent = 'Create Account';
+                
+                // Simulate successful registration
+                showNotification('Account created successfully! Welcome to Elegant Kurtis!', 'success');
+                
+                // Redirect to home page after successful registration
+                setTimeout(() => {
+                    window.location.href = 'index.htmL';
+                }, 2000);
+            }, 3000);
+        });
+
+        // Email validation
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        // Phone validation
+        function isValidPhone(phone) {
+            const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+            return phoneRegex.test(phone.replace(/\s/g, ''));
+        }
+
+        // Password strength monitoring
+        document.getElementById('password').addEventListener('input', function() {
+            checkPasswordStrength(this.value);
+        });
+
+        // Notification system
+        function showNotification(message, type = 'info') {
+            // Remove existing notifications
+            const existingNotification = document.querySelector('.notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `notification notification-${type}`;
+            notification.innerHTML = `
+                <div class="notification-content">
+                    <span class="notification-message">${message}</span>
+                    <button class="notification-close">&times;</button>
+                </div>
+            `;
+
+            // Add styles
+            notification.style.cssText = `
+                position: fixed;
+                top: 100px;
+                right: 20px;
+                background: ${type === 'success' ? '#4CAF50' : type === 'error' ? '#f44336' : '#2196F3'};
+                color: white;
+                padding: 15px 20px;
+                border-radius: 5px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                z-index: 10000;
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
+                max-width: 300px;
+            `;
+
+            // Add to page
+            document.body.appendChild(notification);
+
+            // Animate in
+            setTimeout(() => {
+                notification.style.transform = 'translateX(0)';
+            }, 100);
+
+            // Close button functionality
+            const closeBtn = notification.querySelector('.notification-close');
+            closeBtn.addEventListener('click', () => {
+                notification.style.transform = 'translateX(100%)';
+                setTimeout(() => {
+                    notification.remove();
+                }, 300);
+            });
+
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.style.transform = 'translateX(100%)';
+                    setTimeout(() => {
+                        notification.remove();
+                    }, 300);
+                }
+            }, 5000);
+        }
+
+        // Social registration buttons
+        document.querySelectorAll('.social-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const platform = this.classList.contains('google') ? 'Google' : 'Facebook';
+                showNotification(`${platform} registration coming soon!`, 'info');
+            });
+        });
+
+        // Terms and Privacy functions
+        function showTerms() {
+            showNotification('Terms of Service: By using our service, you agree to our terms and conditions.', 'info');
+        }
+
+        function showPrivacy() {
+            showNotification('Privacy Policy: We protect your data and never share it with third parties.', 'info');
+        }
+
+        // Form field validation on blur
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('blur', function() {
+                const formGroup = this.closest('.form-group');
+                
+                if (this.type === 'email' && this.value) {
+                    if (isValidEmail(this.value)) {
+                        formGroup.classList.remove('error');
+                        formGroup.classList.add('success');
+                    } else {
+                        formGroup.classList.remove('success');
+                        formGroup.classList.add('error');
+                    }
+                } else if (this.type === 'tel' && this.value) {
+                    if (isValidPhone(this.value)) {
+                        formGroup.classList.remove('error');
+                        formGroup.classList.add('success');
+                    } else {
+                        formGroup.classList.remove('success');
+                        formGroup.classList.add('error');
+                    }
+                } else if (this.value) {
+                    formGroup.classList.remove('error');
+                    formGroup.classList.add('success');
+                } else {
+                    formGroup.classList.remove('success', 'error');
+                }
+            });
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && document.activeElement.tagName === 'INPUT') {
+                registerForm.dispatchEvent(new Event('submit'));
+            }
+        });
+
+        // Initialize password strength
+        checkPasswordStrength('');
+    </script>
+</body>
+</html> 

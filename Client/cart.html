@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart - Roy's Elegance</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+    body {
+        background: #fff;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+    .cart-header {
+        background: linear-gradient(135deg, #d4af37 0%, #c19b2e 100%);
+        color: #fff;
+        text-align: center;
+        padding: 1rem 0.5rem;
+        font-size: 1rem;
+        font-family: 'Merriweather', serif;
+        letter-spacing: 0.5px;
+    }
+    .cart-container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 60vh;
+        padding: 2rem 1rem 1rem 1rem;
+    }
+    .cart-logo {
+        font-family: 'Playfair Display', serif;
+        font-size: 3rem;
+        color: #d4af37;
+        margin-bottom: 1.5rem;
+        letter-spacing: 2px;
+        font-weight: 700;
+    }
+    .cart-empty-msg {
+        font-family: 'Merriweather', serif;
+        font-size: 2rem;
+        color: #222;
+        margin-bottom: 2rem;
+        font-weight: 400;
+        text-align: center;
+    }
+    .cart-btn {
+        background: #d4af37;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        padding: 0.9rem 2.2rem;
+        font-size: 1.1rem;
+        font-family: 'Merriweather', serif;
+        font-weight: 600;
+        margin-bottom: 2.2rem;
+        cursor: pointer;
+        transition: background 0.2s, transform 0.2s;
+        box-shadow: 0 4px 16px rgba(212, 175, 55, 0.08);
+    }
+    .cart-btn:hover {
+        background: #c19b2e;
+        transform: translateY(-2px);
+    }
+    .cart-login {
+        font-family: 'Merriweather', serif;
+        color: #222;
+        font-size: 1.1rem;
+        margin-top: 1.2rem;
+        text-align: center;
+    }
+    .cart-login a {
+        color: #d4af37;
+        text-decoration: underline;
+        font-weight: 600;
+        margin-left: 0.2rem;
+    }
+    .cart-login a:hover {
+        color: #c19b2e;
+    }
+    @media (max-width: 600px) {
+        .cart-logo {
+            font-size: 2.1rem;
+        }
+        .cart-empty-msg {
+            font-size: 1.2rem;
+        }
+        .cart-btn {
+            font-size: 1rem;
+            padding: 0.7rem 1.5rem;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="cart-header">
+        Use code <b>WELCOME10</b> for 10% OFF your FIRST PURCHASE worth ₹999 →
+    </div>
+    <div class="cart-container">
+        <div class="cart-logo">Roy's Elegance</div>
+        <div class="cart-empty-msg">Your cart is empty</div>
+        <button class="cart-btn" onclick="window.location.href='index.html'">Continue shopping</button>
+        <div class="cart-login">
+            Have an account?
+            <a href="login.html">Log in</a> to check out faster.
+        </div>
+    </div>
+</body>
+</html> 

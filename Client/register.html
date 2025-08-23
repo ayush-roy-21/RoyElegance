@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Roy's Elegance</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+    .auth-container {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        padding: 20px;
+    }
+    .auth-card {
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        width: 100%;
+        max-width: 420px;
+        position: relative;
+    }
+    .auth-header {
+        background: linear-gradient(135deg, #d4af37 0%, #c19b2e 100%);
+        color: white;
+        padding: 2rem 2rem 1.2rem 2rem;
+        text-align: center;
+    }
+    .auth-header h1 {
+        font-size: 2.1rem;
+        margin-bottom: 0.5rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+    }
+    .auth-header p {
+        opacity: 0.93;
+        font-size: 1.05rem;
+        margin-bottom: 0.2rem;
+    }
+    .auth-form {
+        padding: 2rem 2rem 1rem 2rem;
+    }
+    .form-row {
+        display: flex;
+        gap: 1rem;
+    }
+    .form-row .form-group {
+        flex: 1;
+        margin-bottom: 1.5rem;
+    }
+    .form-group {
+        margin-bottom: 1.5rem;
+        position: relative;
+    }
+    .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: #2c3e50;
+        font-weight: 500;
+    }
+    .form-group .input-icon {
+        position: relative;
+    }
+    .form-group .input-icon i {
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #bfa14a;
+        font-size: 1.1rem;
+    }
+    .form-group .input-icon input {
+        width: 100%;
+        padding: 12px 15px 12px 42px;
+        border: 2px solid #e9ecef;
+        border-radius: 10px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        background: #f8f9fa;
+    }
+    .form-group .input-icon input:focus {
+        outline: none;
+        border-color: #d4af37;
+        background: white;
+        box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+    }
+    .auth-btn {
+        width: 100%;
+        padding: 15px;
+        background: #d4af37;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-bottom: 1rem;
+        box-shadow: 0 6px 18px rgba(212, 175, 55, 0.08);
+    }
+    .auth-btn:hover {
+        background: #c19b2e;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(212, 175, 55, 0.13);
+    }
+    .auth-footer {
+        text-align: center;
+        padding: 1rem 2rem 2rem;
+        color: #666;
+        font-size: 0.98rem;
+    }
+    .auth-footer a {
+        color: #d4af37;
+        text-decoration: none;
+        font-weight: 600;
+    }
+    .auth-footer a:hover {
+        color: #c19b2e;
+    }
+    </style>
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <h1>Create Account</h1>
+                <p>Join Roy's Elegance and unlock a world of premium ethnic wear, exclusive offers, and a seamless shopping experience.</p>
+            </div>
+            <form class="auth-form" id="registerForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <div class="input-icon">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <div class="input-icon">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <div class="input-icon">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <div class="input-icon">
+                        <i class="fas fa-phone"></i>
+                        <input type="text" id="phone" name="phone" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="input-icon">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="password" name="password" required minlength="6">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <div class="input-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <input type="text" id="address" name="address" required>
+                    </div>
+                </div>
+                <button type="submit" class="auth-btn">Register</button>
+            </form>
+            <div class="auth-footer">
+                Already have an account? <a href="login.html">Login</a>
+            </div>
+        </div>
+    </div>
+    <div id="registerError" style="display:none;color:#c0392b;text-align:center;margin-bottom:1rem;font-weight:600;"></div>
+    <script>
+    // API Base URL - change this for production
+    const API_BASE_URL = window.location.hostname === 'localhost' 
+      ? 'http://localhost:5000' 
+      : 'https://royelegance-18.onrender.com';
+
+    document.getElementById('registerForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const firstName = document.getElementById('firstName').value.trim();
+        const lastName = document.getElementById('lastName').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value;
+        const phone = document.getElementById('phone').value.trim();
+        const address = document.getElementById('address').value.trim();
+        const errorDiv = document.getElementById('registerError');
+        if (!firstName || !lastName || !email || !password || !phone || !address) {
+            errorDiv.textContent = 'Please fill in all fields.';
+            errorDiv.style.display = 'block';
+            return;
+        } else {
+            errorDiv.style.display = 'none';
+        }
+        const name = firstName + ' ' + lastName;
+        try {
+            const res = await fetch(`${API_BASE_URL}/api/auth/register`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, email, password, phone, address })
+            });
+            const data = await res.json();
+            if (data.success) {
+                alert('Registration successful! Please login.');
+                window.location.href = 'login.html';
+            } else {
+                errorDiv.textContent = data.message || 'Registration failed.';
+                errorDiv.style.display = 'block';
+            }
+        } catch (err) {
+            errorDiv.textContent = 'Registration failed. Please try again.';
+            errorDiv.style.display = 'block';
+        }
+    });
+    </script>
+</body>
+</html>
