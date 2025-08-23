@@ -4,7 +4,7 @@
   <h1 align="center">👑 RoyElegance 👑</h1>
 
   <p align="center">
-    [A brief, one-sentence slogan that describes your project.]
+    [Elegant designs that celebrates the culture.]
     <br/>
     <br/>
     <a href="[LINK_TO_LIVE_DEMO_IF_APPLICABLE]"><strong>View Demo »</strong></a>
