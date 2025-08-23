@@ -21,7 +21,7 @@
 ![GitHub forks](https://img.shields.io/github/forks/ayush-roy-21/RoyElegance?style=for-the-badge)
 ![GitHub Repo stars](https://img.shields.io/github/stars/ayush-roy-21/RoyElegance?style=for-the-badge)
 ![GitHub license](https://img.shields.io/github/license/ayush-roy-21/RoyElegance?style=for-the-badge)
-[![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)]([https://www.linkedin.com/in/ayush-roy-83689032b/])
+[![LinkedIn]([https://www.linkedin.com/in/ayush-roy-83689032b/])
 
 </div>
 <br>
